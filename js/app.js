@@ -179,7 +179,7 @@ $("input").change(function(){
 
 // Displays alert if no match was found
     if(noMatch.length === li.length){
-         window.alert("No Match Found");
+         window.alert("No results have been found");
     }
 
 
@@ -188,8 +188,14 @@ $("input").change(function(){
 
    //repalces the regular pagination links with the search pagination links
    $(paginate).replaceWith(function(){
+
     addElements();
+
 });
+    // hides the pagination links if the results is 10 or less
+    if(matchLength <= 10 ){
+      $("#uList").hide();
+    }
 
      i = 1 ;
     //iterates the process equivalent to the number of pages required
@@ -197,6 +203,7 @@ $("input").change(function(){
         paginationLiAnchorText();
       i += 1;
     }
+
 
    delete array;
    delete arrayLength;
